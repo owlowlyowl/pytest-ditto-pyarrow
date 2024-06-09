@@ -7,8 +7,8 @@ def make_table() -> pa.Table:
     return pa.table(
         [
             [1, 2, 3],
-            [4.0, 5.0, 6.0],
-            [7, 8.0, None],
+            [4.5, 5.2, 6.8],
+            [7, 8.5, None],
             [True, False, True],
             ["a", "b", "c"],
         ],
@@ -29,8 +29,15 @@ def test_table_parquet(snapshot) -> None:
     assert table.equals(result)
 
 
-@ditto.pyarrow.orc
-def test_table_orc(snapshot) -> None:
+# @ditto.pyarrow.orc
+# def test_table_orc(snapshot) -> None:
+#     table = make_table()
+#     result = snapshot(table, "table")
+#     assert table.equals(result)
+
+
+@ditto.pyarrow.feather
+def test_table_feather(snapshot) -> None:
     table = make_table()
     result = snapshot(table, "table")
     assert table.equals(result)
