@@ -41,6 +41,8 @@ dev = [
 
 [project.entry-points.ditto]
 pyarrow_parquet = "ditto_pyarrow.io:PyArrowParquet"
+pyarrow_orc = "ditto_pyarrow.io:PyArrowORC"
+pyarrow_csv = "ditto_pyarrow.io:PyArrowCSV"
 
 [project.entry-points.ditto_marks]
 pyarrow = "ditto_pyarrow.marks:marks"
