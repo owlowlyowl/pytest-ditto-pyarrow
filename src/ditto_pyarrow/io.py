@@ -35,9 +35,9 @@ class PyArrowCSV:
 
     @staticmethod
     def save(data: pa.Table, filepath: Path) -> None:
-        csv.write_table(data, filepath)
+        csv.write_csv(data, filepath)
 
     @staticmethod
     def load(filepath: Path) -> pa.Table:
-        return csv.read_table(filepath)
+        return csv.read_csv(filepath)
 
