@@ -1,12 +1,12 @@
 [project]
-name = ""
+name = "pytest-ditto-pyarrow"
 dynamic = [
     "version",
 ]
-description = ""
+description = "pytest-ditto plugin for pyarrow tables."
 keywords = ["pytest" , "testing"]
-authors = [{ name = "", email = "" }]
-maintainers = [{ name = "", email = "" }]
+authors = [{ name = "Lachlan Taylor", email = "lachlanbtaylor@proton.me" }]
+maintainers = [{ name = "Lachlan Taylor", email = "lachlanbtaylor@proton.me" }]
 requires-python = ">=3.10"
 license = "MIT"
 readme = "README.md"
@@ -27,6 +27,7 @@ classifiers = [
 dependencies = [
     "pytest>=3.5.0",
     "pytest-ditto>=0.1.0",
+    "pyarrow>=16.1.0",
 ]
 [project.optional-dependencies]
 dev = [
@@ -36,10 +37,13 @@ dev = [
 ]
 
 [project.entry-points.ditto]
-# point at the IO classes
+pyarrow_parquet = "ditto_pyarrow.io:PyArrowParquet"
+# pyarrow_orc = "ditto_pyarrow.io:PyArrowORC"
+pyarrow_csv = "ditto_pyarrow.io:PyArrowCSV"
+pyarrow_feather = "ditto_pyarrow.io:PyArrowFeather"
 
 [project.entry-points.ditto_marks]
-# point at the marks function
+pyarrow = "ditto_pyarrow.marks:marks"
 
 
 [build-system]
@@ -49,12 +53,11 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build]
 include = ["src"]
-# FIXME: point towards correct dir under src for _version and targets.
-#hooks.vcs.version-file = "src/ditto_pandas/_version.py" 
+hooks.vcs.version-file = "src/ditto_pyarrow/_version.py" 
 hooks.vcs.template = "__version__ = {version!r}"
-# targets.wheel.packages = ["src/ditto_pandas"]
+targets.wheel.packages = ["src/ditto_pyarrow"]
 targets.wheel.strict-naming = false
-# targets.sdist.packages = ["src/ditto_pandas"]
+targets.sdist.packages = ["src/ditto_pyarrow"]
 targets.sdist.strict-naming = false
 
 [tool.hatch.version]
@@ -112,8 +115,7 @@ exclude = '''
 
 [tool.coverage.run]
 branch = true
-# FIXME: point towards correct dir
-# source = ["src/ditto_pandas"]
+source = ["src/ditto_pyarrow"]
 
 [tool.coverage.report]
 show_missing = true

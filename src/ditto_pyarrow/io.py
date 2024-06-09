@@ -1,21 +1,56 @@
 from pathlib import Path
 from typing import ClassVar
 
+import pyarrow as pa
+import pyarrow.parquet as pq
+from pyarrow import orc, csv, feather
 
-# TODO: rename class.
-class _NEW_IO_CLASS:
-    # Extension should have plugin suffix as prefix, e.g, `pytest-ditto-pandas`
-    # has the extenstion "pandas.{io_type}" where `io_type` is something like
-    # pickle, csv, parquet, json, etc. So, for json it would be 'pandas.json'.
-    # TODO: assign extension type
-    extension: ClassVar[str] = ""
 
-    @staticmethod
-    def save(data: pd.DataFrame, filepath: Path) -> None:
-        # TODO: implement save
-        raise NotImplementedError()
+class PyArrowParquet:
+    extension: ClassVar[str] = "pyarrow.parquet"
 
     @staticmethod
-    def load(filepath: Path) -> pd.DataFrame:
-        # TODO: implement load
-        raise NotImplementedError()
+    def save(data: pa.Table, filepath: Path) -> None:
+        pq.write_table(data, filepath)
+
+    @staticmethod
+    def load(filepath: Path) -> pa.Table:
+        return pq.read_table(filepath)
+
+
+# TODO: requires IANA timezone database installed
+# class PyArrowORC:
+#     extension: ClassVar[str] = "pyarrow.orc"
+#
+#     @staticmethod
+#     def save(data: pa.Table, filepath: Path) -> None:
+#         orc.write_table(data, filepath)
+#
+#     @staticmethod
+#     def load(filepath: Path) -> pa.Table:
+#         return orc.read_table(filepath)
+
+
+class PyArrowFeather:
+    extension: ClassVar[str] = "pyarrow.feather"
+
+    @staticmethod
+    def save(data: pa.Table, filepath: Path) -> None:
+        feather.write_feather(data, filepath)
+
+    @staticmethod
+    def load(filepath: Path) -> pa.Table:
+        return feather.read_table(filepath)
+
+
+class PyArrowCSV:
+    extension: ClassVar[str] = "pyarrow.csv"
+
+    @staticmethod
+    def save(data: pa.Table, filepath: Path) -> None:
+        csv.write_csv(data, filepath)
+
+    @staticmethod
+    def load(filepath: Path) -> pa.Table:
+        return csv.read_csv(filepath)
+
