@@ -27,7 +27,7 @@ classifiers = [
 dependencies = [
     "pytest>=3.5.0",
     "pytest-ditto>=0.1.0",
-    "pyarrow",
+    "pyarrow>=16.1.0",
 ]
 [project.optional-dependencies]
 dev = [
