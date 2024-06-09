@@ -1,6 +1,6 @@
 # pytest-ditto-pyarrow
 
-Extenstion plugin for [`pytest-ditto`](https://github.com/owlowlyowl/pytest-ditto) for `pyarrow` table snapshots.
+Extension plugin for [`pytest-ditto`](https://github.com/owlowlyowl/pytest-ditto) for `pyarrow` table snapshots.
 
 ## Installation
 ```bash
@@ -11,7 +11,7 @@ pip install pytest-ditto[pyarrow]
 The following test example tests the result of `fn` hasn't changed by comparing against a saved snapshot of the result. This snapshot is taken the first time the test is run; hence, the initial run is not a proper test run. Subsequent test runs are compared against the saved result.
 
 - The fixture, `table` is a `pyarrow.Table` and is the argument to the function under test, `fn`.
-- `fn` transforms the data and the test asserts the result is still the same as the initial (hopefully validated) result.
+- `fn` transforms the data and the test asserts the result of this function in unchanged compared to the initial, hopefully validated, result.
 
 ```python
 import pyarrow as pa
