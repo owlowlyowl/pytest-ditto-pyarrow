@@ -3,7 +3,7 @@ name = "pytest-ditto-pyarrow"
 dynamic = [
     "version",
 ]
-description = "pytest-ditto plugin for pyarrow objects."
+description = "pytest-ditto plugin for pyarrow tables."
 keywords = ["pytest" , "testing"]
 authors = [{ name = "Lachlan Taylor", email = "lachlanbtaylor@proton.me" }]
 maintainers = [{ name = "Lachlan Taylor", email = "lachlanbtaylor@proton.me" }]
