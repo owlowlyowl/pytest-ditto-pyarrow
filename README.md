@@ -1,1 +1,1 @@
-# pytest-ditto-tmpl
+# pytest-ditto-pyarrow
