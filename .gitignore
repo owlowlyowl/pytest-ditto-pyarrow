@@ -1,4 +1,5 @@
-.ditto
+tests/ci/.ditto/*
+!tests/ci/.ditto/test_fn_with_pyarrow_parquet_snapshot@filtered.pyarrow.parquet
 
 .pytest_cache
 __pycache__
