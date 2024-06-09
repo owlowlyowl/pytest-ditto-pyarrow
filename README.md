@@ -2,6 +2,11 @@
 
 Extension plugin for [`pytest-ditto`](https://github.com/owlowlyowl/pytest-ditto) for `pyarrow` table snapshots.
 
+Use the following marks for their associated IO format:
+- `@ditto.pyarrow.parquet`
+- `@ditto.pyarrow.feather`
+- `@ditto.pyarrow.csv`
+
 ## Installation
 ```bash
 pip install pytest-ditto[pyarrow]
@@ -12,6 +17,7 @@ The following test example tests the result of `fn` hasn't changed by comparing 
 
 - The fixture, `table` is a `pyarrow.Table` and is the argument to the function under test, `fn`.
 - `fn` transforms the data and the test asserts the result of this function in unchanged compared to the initial, hopefully validated, result.
+- The output format of the snapshot is parquet as defined by the `@ditto.pyarrow.parquet` mark.
 
 ```python
 import pyarrow as pa
