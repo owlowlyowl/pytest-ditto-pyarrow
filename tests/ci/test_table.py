@@ -1,6 +1,5 @@
 import pyarrow as pa
 import ditto
-import pytest
 
 
 def make_table() -> pa.Table:
@@ -18,7 +17,7 @@ def make_table() -> pa.Table:
             "floats_with_none",
             "bools",
             "strings",
-        ]
+        ],
     )
 
 
@@ -48,4 +47,3 @@ def test_table_csv(snapshot) -> None:
     table = make_table()
     result = snapshot(table, "table")
     assert table.equals(result)
-

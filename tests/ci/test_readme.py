@@ -18,9 +18,8 @@ def table() -> pa.Table:
     )
 
 
-
 def fn(x: pa.Table):
-    even_filter = (pc.bit_wise_and(pc.field("a"), pc.scalar(1)) == pc.scalar(0))
+    even_filter = pc.bit_wise_and(pc.field("a"), pc.scalar(1)) == pc.scalar(0)
     return x.filter(even_filter)
 
 
@@ -28,4 +27,3 @@ def fn(x: pa.Table):
 def test_fn_with_pyarrow_parquet_snapshot(snapshot, table):
     result = fn(table)
     assert result.equals(snapshot(result, key="filtered"))
-

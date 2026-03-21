@@ -18,7 +18,7 @@ def make_table() -> pa.Table:
             "floats_with_none",
             "bools",
             "strings",
-        ]
+        ],
     )
 
 
@@ -45,6 +45,7 @@ def test_feather(snapshot) -> None:
 #     assert snapshot.filepath(key).exists()
 #     assert snapshot.filepath(key).suffix == ".orc"
 #
+
 
 @ditto.pyarrow.csv
 def test_csv(snapshot) -> None:

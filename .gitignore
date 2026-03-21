@@ -4,6 +4,7 @@ tests/ci/.ditto/*
 .pytest_cache
 __pycache__
 *.egg-info
+.pytest
 
 venv*
 .venv*

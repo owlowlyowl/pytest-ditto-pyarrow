@@ -18,4 +18,3 @@ def marks() -> PyArrowMarks:
         feather=pytest.mark.record("pyarrow_feather"),
         csv=pytest.mark.record("pyarrow_csv"),
     )
-
