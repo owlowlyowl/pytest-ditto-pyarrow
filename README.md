@@ -2,7 +2,7 @@
 
 Extension plugin for [`pytest-ditto`](https://github.com/owlowlyowl/pytest-ditto) for `pyarrow` table snapshots.
 
-Use the following marks for their associated IO format:
+Use the following marks for their associated recorder:
 - `@ditto.pyarrow.parquet`
 - `@ditto.pyarrow.feather`
 - `@ditto.pyarrow.csv`
