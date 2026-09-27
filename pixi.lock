@@ -886,10 +886,10 @@ packages:
 - pypi: ./
   name: pytest-ditto-pyarrow
   version: 0.0.1.post0.dev1+5aa403f
-  sha256: 84ddcd59b47d6f987000805840810a26d72a487cbe4175470ed828d272e22852
+  sha256: 9e0a2a69a07e0455682058f7efcc5b51ab8737218e5bcc1f7962ada313e0c1df
   requires_dist:
   - pyarrow>=16.1.0
-  - pytest-ditto>=1.0.1
+  - pytest-ditto>=1.0.1,<2
   - pytest>=3.5.0
   requires_python: '>=3.12'
 - conda: https://conda.anaconda.org/conda-forge/linux-64/python-3.12.13-hd63d673_0_cpython.conda
